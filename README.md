@@ -1,6 +1,7 @@
 # Crise: quand c'est la crise, 0/20
 
 ![crise](https://raw.githubusercontent.com/prdsrm/crise/refs/heads/main/assets/crise.png)
+![crise](https://raw.githubusercontent.com/prdsrm/crise/refs/heads/main/assets/crise-spaces.png)
 
 ## Installation & Usage
 
