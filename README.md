@@ -12,6 +12,16 @@
 3. Build: `go build`
 4. Then `cd` into the directory where your project is located, copy the `crise` executable and run it.
 
+Flags:
+```
+user@users-MacBook-Air sae-1-init-dev % ./crise/crise -h
+CRISE - 😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭
+Usage of ./crise/crise:
+  -dir int
+    	1=default, 2=sans-erreur, 3=avec-erreurs (default 1)
+  -sprint int
+    	1-4=a specific one (default 1)
+```
 ## License
 
 BSD-3-Clause license, because FreeBSD is great
