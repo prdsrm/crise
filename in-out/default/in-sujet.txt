@@ -1,0 +1,20 @@
+inscription Lea 101
+inscription John 101
+inscription Alex 30
+absence 1 1 am
+absence 1 5 pm
+absence 3 3 am
+absence 3 2 pm
+etudiants 80
+etudiants 3
+justificatif 1 5 j'avais mal au ventre
+justificatif 2 5 j'avais piscine
+justificatif 4 5 j'avais une garde a vue
+validations
+validation 2 ko
+validation 4 ok
+etudiant 1 20
+etudiant 3 5
+etudiant 3 20
+defaillants 20
+exit
