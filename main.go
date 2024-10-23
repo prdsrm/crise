@@ -148,7 +148,9 @@ func sprint(name string, n int, showSpace bool, quick bool) (Status, error) {
 
 	// Compare outputs
 	if bytes.Equal(actual, expected) {
-		fmt.Printf("Sprint %d: %sPASS%s\n", n, greenIn, greenOut)
+		if !quick {
+			fmt.Printf("Sprint %d: %sPASS%s\n", n, greenIn, greenOut)
+		}
 		return Pass, nil
 	} else {
 		// Show difference
