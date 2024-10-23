@@ -13,6 +13,13 @@ import (
 	"unicode"
 )
 
+const (
+	greenIn  = "\033[32m"
+	greenOut = "\033[0m"
+	redIn    = "\033[31m"
+	redOut   = "\033[0m"
+)
+
 func RemoveSpacesAndNewlines(s string) string {
 	// Use strings.Map to remove non-printable characters
 	cleanText := strings.Map(func(r rune) rune {
@@ -103,12 +110,12 @@ func sprint(name string, n int) error {
 
 	// Compare outputs
 	if bytes.Equal(actual, expected) {
-		fmt.Printf("Sprint %d: \033[32mPASS\033[0m\n", n)
+		fmt.Printf("Sprint %d: %sPASS%s\n", n, greenIn, greenOut)
 	} else {
 		if RemoveSpacesAndNewlines(string(actual)) == RemoveSpacesAndNewlines(string(expected)) {
-			fmt.Printf("Sprint %d: \033[31mFAIL (SPACES or NEWLINES) \033[0m\n", n)
+			fmt.Printf("Sprint %d: %sFAIL (SPACES or NEWLINES)%s\n", n, redIn, redOut)
 		} else {
-			fmt.Printf("Sprint %d: \033[31mFAIL\033[0m\n", n)
+			fmt.Printf("Sprint %d: %sFAIL%s\n", n, redIn, redOut)
 		}
 		// Show difference
 		actualLines := strings.Split(string(actual), "\n")
@@ -124,9 +131,18 @@ func sprint(name string, n int) error {
 				expectedLine = expectedLines[j]
 			}
 			if actualLine != expectedLine {
-				fmt.Printf("Line %d:\n", j+1)
-				fmt.Printf("  Expected: %q\n", expectedLine)
-				fmt.Printf("  Got:      %q\n", actualLine)
+				var in string
+				var out string
+				if RemoveSpacesAndNewlines(actualLine) == RemoveSpacesAndNewlines(expectedLine) {
+					in = greenIn
+					out = greenOut
+				} else {
+					in = redIn
+					out = redOut
+				}
+				fmt.Printf("%sLine %d:%s\n", in, j+1, out)
+				fmt.Printf("  %sExpected%s: %q\n", in, out, expectedLine)
+				fmt.Printf("  %sGot%s:      %q\n", in, out, actualLine)
 			}
 		}
 	}
